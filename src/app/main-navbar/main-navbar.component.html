@@ -1,14 +1,22 @@
-<div>
+<div id="nav-container">
   <nav>
     <button id="sideBarIcon" *ngIf="isShowing"><span>|||</span></button>
     <a routerLink="/" routerLinkActive="appHome">Angular</a>
-    <a routerLink="/features" routerLinkActive="appFeatures">FEATURES</a>
-    <a routerLink="/docs" routerLinkActive="appDocs">DOCS</a>
-    <a routerLink="/resources" routerLinkActive="appResources">RESOURCES</a>
-    <a routerLink="/events" routerLinkActive="appEvents">EVENTS</a>
-    <a routerLink="/blog" routerLinkActive="appBlog">BLOG</a>
-    <input type="text" id="navSearch" />
-    <span id="twitterIcon">Twit</span>
-    <span id="githubIcon">Git</span>
+    <div id="top-menu">
+      <ul>
+        <li><a routerLink="/features" routerLinkActive="appFeatures"><span>FEATURES</span></a></li>
+        <li><a routerLink="/docs" routerLinkActive="appDocs"><span>DOCS</span></a></li>
+        <li><a routerLink="/resources" routerLinkActive="appResources"><span>RESOURCES</span></a></li>
+        <li><a routerLink="/events" routerLinkActive="appEvents"><span>EVENTS</span></a></li>
+        <li><a routerLink="/blog" routerLinkActive="appBlog"><span>BLOG</span></a></li>
+      </ul>
+    </div>
+    <div id="search-container">
+      <input type="text" id="navSearch" placeholder="Search" />
+    </div>
+    <div id="icons-container">
+      <span id="twitterIcon">Twit</span>
+      <span id="githubIcon">Git</span>
+    </div>
   </nav>
 </div>
