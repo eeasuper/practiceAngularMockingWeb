@@ -11,7 +11,7 @@ import { EventsModule } from './events/events.module';
 import { AppSideBarComponent } from './appSideBar/app-side-bar/app-side-bar.component';
 import { AppSideBarModule } from './appSideBar/app-side-bar.module';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
-
+import {AppSideBarService} from './app-side-bar.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { MainNavbarComponent } from './main-navbar/main-navbar.component';
     EventsModule,
     AppSideBarModule
   ],
-  providers: [],
+  providers: [AppSideBarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

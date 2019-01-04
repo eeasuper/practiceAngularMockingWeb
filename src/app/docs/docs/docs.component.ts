@@ -16,6 +16,6 @@ export class DocsComponent implements OnInit,DoCheck {
   }
 
   ngDoCheck(){
-    this.sidebarService.isShowing = true;
+    
   }
 }

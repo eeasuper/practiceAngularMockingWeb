@@ -1,0 +1,22 @@
+a{
+  color: #fff;
+}
+
+nav{
+  height: 64px;
+  padding-right: 16px;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+  background: #1976d2;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}

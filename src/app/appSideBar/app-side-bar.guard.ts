@@ -13,7 +13,7 @@ export class AppSideBarGuard implements CanActivate{
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     let url: string = state.url;
-    console.log("from guard:"+url);
+    // console.log("from guard:"+url);
     // this.sidebarService.showSidebar = true;
     return true;
   }

@@ -8,10 +8,8 @@ import {AppSideBarService} from "../../app-side-bar.service";
   styleUrls: ['./app-side-bar.component.css']
 })
 export class AppSideBarComponent implements OnInit {
-  isShowing:boolean;
 
-  constructor() {
-    this.isShowing = false;
+  constructor(private sidebarService:AppSideBarService) {
   }
 
   ngOnInit() {
