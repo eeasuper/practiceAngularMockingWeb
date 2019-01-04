@@ -1,21 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header>
+  <div>
+    <nav>
+      <button id="sideBarIcon" *ngIf="isShowing"><span>|||</span></button>
+      <a routerLink="/" routerLinkActive="appHome">Angular</a>
+      <a routerLink="/features" routerLinkActive="appFeatures">FEATURES</a>
+      <a routerLink="/docs" routerLinkActive="appDocs">DOCS</a>
+      <a routerLink="/resources" routerLinkActive="appResources">RESOURCES</a>
+      <a routerLink="/events" routerLinkActive="appEvents">EVENTS</a>
+      <a routerLink="/blog" routerLinkActive="appBlog">BLOG</a>
+      <input type="text" id="navSearch" />
+      <span id="twitterIcon">Twit</span>
+      <span id="githubIcon">Git</span>
+    </nav>
+  </div>
+  <app-side-bar *ngIf="isShowing" ></app-side-bar>
+  <p>{{isShowing | json}}</p>
+</header>
 
-<router-outlet></router-outlet>
+<router-outlet #routerOutlet="outlet"></router-outlet>
+
+<footer>
+  <nav>
+    <ul>
+      <li class="footUlTitle">RESOURCES</li>
+      <li>About</li>
+      <li>Resource Listing</li>
+      <li>Press Kit</li>
+      <li>Blog</li>
+    </ul>
+    <ul>
+      <li class="footUlTitle">HELP</li>
+      <li>Stack Overflow</li>
+      <li>Gitter</li>
+      <li>Report Issues</li>
+      <li>Code Of Conduct</li>
+    </ul>
+    <ul>
+      <li class="footUlTitle">COMMUNITY</li>
+      <li>Events</li>
+      <li>Meetups</li>
+      <li>Twitter</li>
+      <li>GitHub</li>
+      <li>Contribute</li>
+    </ul>
+    <ul>
+      <li class="footUlTitle">LANGUAGES</li>
+      <li>中文版</li>
+      <li>日本語版</li>
+    </ul>
+  </nav>
+  <p>Powered by Google ©2010-2018. Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0. </p>
+  <p>Version 7.1.5-local+sha.9129112. </p>
+</footer>
