@@ -1,6 +1,19 @@
 <div id="nav-container">
   <nav>
-    <button id="sideBarIcon" *ngIf="isShowing"><span>|||</span></button>
+    <div #sideMenuIcon id="side-bar-icon" *ngIf="isButtonShowing" (click)="toggleShowing()" (mousedown)="doTripple($event)">
+      <span> 
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="24" height="24"
+viewBox="0 0 224 224"
+style=" fill:#000000;"><g transform="translate(0.448,0.448) scale(0.996,0.996)"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g fill="#ffffff" stroke="#ffffff" stroke-linejoin="round"><path d="M205.33333,46.66667v18.66667h-186.66667v-18.66667zM205.33333,102.66667v18.66667h-186.66667v-18.66667zM205.33333,158.66667v18.66667h-186.66667v-18.66667z"></path></g><path d="M0,224v-224h224v224z" fill="none" stroke="none" stroke-linejoin="miter"></path><g fill="#ffffff" stroke="none" stroke-linejoin="miter"><path d="M18.66667,46.66667v18.66667h186.66667v-18.66667zM18.66667,102.66667v18.66667h186.66667v-18.66667zM18.66667,158.66667v18.66667h186.66667v-18.66667z"></path></g><path d="" fill="none" stroke="none" stroke-linejoin="miter"></path><path d="" fill="none" stroke="none" stroke-linejoin="miter"></path></g></g></svg>
+      </span>
+      <div #btnRipples id="button-ripples">
+        <div #fstRipple id="first-ripple"></div>
+        <div #scdRipple id="second-ripple"></div>
+        <div #trdRipple id="third-ripple"></div>
+      </div>
+      <div id="button-focus"></div>
+    </div>
     <a routerLink="/" routerLinkActive="appHome">Angular</a>
     <div id="top-menu">
       <ul>

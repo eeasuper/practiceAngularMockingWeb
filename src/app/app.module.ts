@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { AppSideBarComponent } from './appSideBar/app-side-bar/app-side-bar.comp
 import { AppSideBarModule } from './appSideBar/app-side-bar.module';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import {AppSideBarService} from './app-side-bar.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {AppSideBarService} from './app-side-bar.service';
     DocsModule,
     ResourcesModule,
     EventsModule,
-    AppSideBarModule
+    AppSideBarModule,
+    BrowserAnimationsModule
   ],
   providers: [AppSideBarService],
   bootstrap: [AppComponent]

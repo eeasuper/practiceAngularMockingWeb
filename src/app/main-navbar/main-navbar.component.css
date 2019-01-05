@@ -1,6 +1,7 @@
 a{
   color: #fff;
   text-decoration: none;
+  outline: 0;
 }
 
 #nav-container{
@@ -13,6 +14,7 @@ a{
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
   background: #1976d2;
   color: #fff;
+  z-index: 2;
 }
 
 nav{
@@ -25,6 +27,41 @@ nav{
   align-items: center;
   white-space: nowrap;
   font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+}
+
+#side-bar-icon{
+  background-color: transparent;
+  /*background-repeat:;*/
+  border: none;
+  outline: 0;
+  /*overflow: hidden;*/
+  height: 100%;
+  margin: 0 8px 0 0;
+  min-width: 64px;
+  border-radius: 4px;
+}
+#side-bar-icon:focus{
+  outline: 0;
+}
+
+#side-bar-icon:hover{
+  background-color: #096BCA;
+}
+
+#side-bar-icon span svg{
+  padding: 19px 19px;
+}
+
+#first-ripple{
+  border-radius: 50px;
+  transition: transform 1s linear;
+  width: 1px;
+  height: 1px;
+  background-color: red;
+}
+.doRipple{
+
+  transform: scale(64, 64);
 }
 
 #top-menu{
@@ -53,11 +90,18 @@ nav{
 
 #top-menu ul a span{
   padding: 8px 16px;
+  border-radius: 5px;
 }
 
 #top-menu ul a:hover{
   opacity: 0.7;
 }
+
+#top-menu ul a:focus span{
+
+  background-color: #3D8Cd8;
+}
+
 #search-container{
   width: 100%;
   height: 100%;

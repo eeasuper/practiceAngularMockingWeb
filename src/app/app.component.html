@@ -1,7 +1,9 @@
 <header>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'"/>
   <app-main-navbar></app-main-navbar>
-  <app-side-bar *ngIf="isShowing"></app-side-bar>
+  <div *ngIf="isSidebarShowing" [@slideInOut]>
+    <app-side-bar ></app-side-bar>
+  </div>
 </header>
 
 <router-outlet #routerOutlet="outlet"></router-outlet>
@@ -39,4 +41,5 @@
   </nav>
   <p>Powered by Google ©2010-2018. Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0. </p>
   <p>Version 7.1.5-local+sha.9129112. </p>
+  <a href="https://icons8.com/icon/82853/menu">Menu icon by Icons8</a>
 </footer>
