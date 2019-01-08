@@ -15,11 +15,11 @@ const routes :string[] = ["/docs","/api","/guides"]
       state('*', style({position:'fixed', width:'100%'}) ),
       transition('void => *', [
           style({transform: 'translateX(-100%)'}),
-          animate('0.2s linear', style({transform: 'translateX(0%)'}))
+          animate('1s linear', style({transform: 'translateX(0%)'}))
         ]),
       transition('* => void', [
         style({transform: 'translateX(0%)'}),
-        animate('0.2s linear', style({transform: 'translateX(-100%)'}))
+        animate('1s linear', style({transform: 'translateX(-100%)'}))
       ])
     ])
   ],

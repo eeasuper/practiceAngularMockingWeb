@@ -30,7 +30,6 @@ export class AppSideBarComponent implements OnInit {
 
   ngOnInit() {
     this.sidebarService.isShowingChange.subscribe((val)=>{
-      console.log("sidebarcomponent changed"+val)
       this.isSidebarShowing = val;
     })
   }

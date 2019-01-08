@@ -13,13 +13,18 @@ import { AppSideBarComponent } from './appSideBar/app-side-bar/app-side-bar.comp
 import { AppSideBarModule } from './appSideBar/app-side-bar.module';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import {AppSideBarService} from './app-side-bar.service';
-
+import {MenuButtonComponent} from './main-navbar/menu-button/menu-button.component';
+import { SidenavContainerComponent } from './sidenav-container/sidenav-container.component';
+import { SidenavContentComponent } from './sidenav-container/sidenav-content/sidenav-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppSideBarComponent,
-    MainNavbarComponent
+    MainNavbarComponent,
+    MenuButtonComponent,
+    SidenavContainerComponent,
+    SidenavContentComponent
   ],
   imports: [
     BrowserModule,

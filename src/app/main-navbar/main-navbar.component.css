@@ -48,22 +48,6 @@ nav{
   background-color: #096BCA;
 }
 
-#side-bar-icon span svg{
-  padding: 19px 19px;
-}
-
-#first-ripple{
-  border-radius: 50px;
-  transition: transform 1s linear;
-  width: 1px;
-  height: 1px;
-  background-color: red;
-}
-.doRipple{
-
-  transform: scale(64, 64);
-}
-
 #top-menu{
   display: flex;
   flex-direction: row;

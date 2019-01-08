@@ -1,34 +1,29 @@
-import { Directive, Component, OnInit, ViewChild, ViewChildren, ElementRef, Renderer2,AfterViewInit} from '@angular/core';
+import { Directive, ComponentFactoryResolver, Component, OnInit, Input, ViewChild, QueryList, ViewChildren, ElementRef, Renderer2,AfterViewInit} from '@angular/core';
 import {AppSideBarService} from '../app-side-bar.service';
-
-@Directive({selector:'btnRipple '})
+import {RippleDirective} from '../btn-ripple.directive';
+import {MenuButtonComponent} from './menu-button/menu-button.component';
+// @Directive({selector:'btnRipple'})
+// export class Ripple {
+//   @Input() id : string;
+// }
+// import {Ripple} from '../Ripple'
 
 @Component({
   selector: 'app-main-navbar',
   templateUrl: './main-navbar.component.html',
   styleUrls: ['./main-navbar.component.css']
 })
-export class MainNavbarComponent implements OnInit,AfterViewInit {
-  @ViewChildren('sideMenuIcon') menuIcon : QueryList<>
-  // @ViewChild('#btnRipples')  btnRipplesElement: ElementRef;
-  // @ViewChild('#fstRipple') fstRippleElement: ElementRef;
-  // @ViewChild('#scdRipple')  scdRippleElement: ElementRef;
-  // @ViewChild('#trdRipple')  trdRippleElement: ElementRef;
-
-  ripplesElement: any;
-  fstRipple: any;
-  scdRipple: any;
-  trdRipple: any;
+export class MainNavbarComponent  implements OnInit  {
+  @ViewChild(RippleDirective) ripDir: RippleDirective;
 
   isButtonShowing:boolean;
   isSidebarShowing:boolean;
 
-  event: MouseEvent;
   clientX: number = 0;
   clientY: number = 0;
-
-  constructor(private sidebarService:AppSideBarService, private renderer: Renderer2) { }
-
+  clicked: boolean;
+  constructor(private sidebarService:AppSideBarService) {
+   }
   toggleShowing(): void{
     if(this.isSidebarShowing){
       this.sidebarService.isShowingChange.next(false);
@@ -38,8 +33,12 @@ export class MainNavbarComponent implements OnInit,AfterViewInit {
   }
 
   doTripple(event: MouseEvent):void{
-    // this.renderer.setStyle(this.fstRipple, 'transform', 'scale(64px, 64px)')
-    this.renderer.addClass(this.fstRipple,'doRipple');
+    this.clicked = true;
+    this.clientX = event.clientX;
+    this.clientY = event.clientY;
+    setTimeout(()=>{
+      this.clicked = false;
+    },0)
   }
 
   ngOnInit() {
@@ -47,15 +46,8 @@ export class MainNavbarComponent implements OnInit,AfterViewInit {
       this.isSidebarShowing = val;
     })
     this.sidebarService.isButtonShowingChange.subscribe((val)=>{
-      // console.log("serviceBUTTON")
       this.isButtonShowing = val;  
     })
   }
 
-  ngAfterViewInit(){
-    //   this.ripplesElement = this.btnRipplesElement.nativeElement;
-    // this.fstRipple = this.fstRippleElement.nativeElement;
-    // this.scdRipple = this.scdRippleElement.nativeElement;
-    // this.trdRipple = this.trdRippleElement.nativeElement;
-  }
 }
