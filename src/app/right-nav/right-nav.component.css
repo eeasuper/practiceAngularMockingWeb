@@ -1,0 +1,55 @@
+:host{
+  width: 18%;
+  position: fixed;
+  top: 76px;
+  right: 0;
+  bottom: 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 0 0 10px;
+}
+
+ul{
+  padding: 0 8px 0 0;
+  list-style: none
+}
+
+.inner-li{
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 3px 0 3px 12px;
+  position: relative;
+  transition: all .3s ease-in-out;
+
+} 
+
+.inner-li:before{
+  content: "";
+  border-left: 1px solid #dbdbdb;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.test:after{
+  position: absolute;
+  left: -.98%;
+  top: 35%;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #1976d2;
+  border-radius: 50%;
+  box-sizing: none;
+}
+
+.subtitles{
+  padding-left: 24px;
+}
+
+.main-title{
+  border-bottom: 5px solid red;
+}
+

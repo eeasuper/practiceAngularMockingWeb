@@ -1,12 +1,11 @@
 <header>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'"/>
-  <app-main-navbar></app-main-navbar>
-  <div *ngIf="isSidebarShowing" [@slideInOut]>
-    <app-side-bar ></app-side-bar>
-  </div>
+  <app-main-navbar (showSidebar)= "showSb($event)"></app-main-navbar>
 </header>
 
-<router-outlet #routerOutlet="outlet"></router-outlet>
+<body>
+  <app-sidenav-container [isSbShowing]="isSidebarShowing"></app-sidenav-container>
+</body>
 
 <footer>
   <nav>

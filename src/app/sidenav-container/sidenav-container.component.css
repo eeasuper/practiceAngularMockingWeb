@@ -1,0 +1,25 @@
+:host{
+
+}
+
+#left-container{
+  max-width: 82%;
+}
+
+#right-container{
+  width: 18%;
+}
+
+#sidebarCon{
+  transition: transform .2s linear, visibility .2s linear;
+}
+
+.hide {
+  transform: translateX(-260px);
+  visibility: hidden;
+}
+
+.show{
+  transform: translateX(0%);
+  visibility: visible;
+}

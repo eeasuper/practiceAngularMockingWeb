@@ -1,0 +1,6 @@
+<div class="container">
+  <ul>
+    <li class="inner-li" *ngFor="let title of titles; let i=index" appRightNav [subtitles]="subtitles" [index]="i" [pageYs]="pageYOfTitles">{{title}}</li>
+  </ul>
+  <!-- <app-lis></app-lis> -->
+<div>

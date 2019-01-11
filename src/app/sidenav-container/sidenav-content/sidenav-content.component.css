@@ -1,0 +1,11 @@
+#routerCon{
+  transition: margin-left .2s linear;
+}
+
+.expand{
+  margin-left: 0px;
+}
+
+.contract{
+  margin-left: 260px;
+}

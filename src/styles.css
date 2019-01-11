@@ -10,3 +10,6 @@ input{
   letter-spacing: .3px;
   font-weight: 400;
 }
+body{
+  font: 500 14px Roboto,"Helvetica Neue",sans-serif;
+}

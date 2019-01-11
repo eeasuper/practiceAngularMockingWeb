@@ -1,6 +1,6 @@
 <div id="nav-container">
   <nav>
-    <app-menu-button id="side-bar-icon" *ngIf="isButtonShowing" (click)="toggleShowing()" (mousedown)="doTripple($event)" [xCord]="clientX" [yCord]="clientY" [clicked]="clicked"></app-menu-button>
+    <app-menu-button id="side-bar-icon" *ngIf="isButtonShowing" (click)="toggleShowing()" (mousedown)="doRipple($event)" [xCord]="clientX" [yCord]="clientY" [clicked]="clicked"></app-menu-button>
     <a routerLink="/" routerLinkActive="appHome">Angular</a>
     <div id="top-menu">
       <ul>
