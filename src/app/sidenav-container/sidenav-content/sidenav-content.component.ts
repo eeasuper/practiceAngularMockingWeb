@@ -7,7 +7,7 @@ import {trigger, state, style, animate,transition} from '@angular/animations';
   styleUrls: ['./sidenav-content.component.css']
 })
 export class SidenavContentComponent implements OnInit,OnChanges {
-  @Input() isSbShowing:boolean;
+  @Input('isSbShowing') private isSbShowing:boolean;
   @ViewChild('routerCon') private routerCon: ElementRef;
   isSidebarShowing:boolean;
 
@@ -24,6 +24,7 @@ export class SidenavContentComponent implements OnInit,OnChanges {
       this.renderer.removeClass(this.routerCon.nativeElement,'contract')
       this.renderer.addClass(this.routerCon.nativeElement, 'expand')
     }
+
   }
 
   ngOnInit() {

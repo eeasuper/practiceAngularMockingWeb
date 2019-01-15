@@ -1,5 +1,7 @@
 import {Component, OnInit,Input,OnChanges } from '@angular/core';
 import {RightNavService} from './right-nav.service';
+import {ActivatedRoute} from '@angular/router';
+
 @Component({
   selector: 'app-right-nav',
   templateUrl: './right-nav.component.html',
@@ -13,6 +15,7 @@ export class RightNavComponent implements OnInit,OnChanges {
   @Input('titles') private titles:string[];
   @Input('pageYs') private pageYOfTitles:number[];
 
+  @Input('url') private url:string;
   constructor(private rightnavService:RightNavService) { }
 
   ngOnInit() {

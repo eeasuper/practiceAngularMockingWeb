@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter,Output } from '@angular/core';
 // import {AppComponent} from '../../app.component';
 import {AppSideBarService} from '../../app-side-bar.service';
+import {RightNavService} from '../../right-nav/right-nav.service'
 
 @Component({
   selector: 'app-docs',
@@ -12,7 +13,7 @@ import {AppSideBarService} from '../../app-side-bar.service';
 export class DocsComponent implements OnInit {
   isSidebarShowing:boolean;
 
-  constructor(private sidebarService:AppSideBarService){
+  constructor(private sidebarService:AppSideBarService,private rightnavService:RightNavService){
     this.isSidebarShowing = true;
   }
 
@@ -20,6 +21,7 @@ export class DocsComponent implements OnInit {
     this.sidebarService.isShowingChange.subscribe((val)=>{
       this.isSidebarShowing = val;
     })
+    this.rightnavService.showingSubject.next(false);
   }
 
 }

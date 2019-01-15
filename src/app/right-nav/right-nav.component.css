@@ -9,6 +9,18 @@
   padding: 4px 0 0 10px;
 }
 
+a{
+  text-decoration: none;
+  color: #4d4c4c;
+  font-size: 12px;
+  display: table-cell;
+}
+a:visited{
+  text-decoration: none;
+}
+a:not(.active):hover{
+  color:#4598e3;
+}
 ul{
   padding: 0 8px 0 0;
   list-style: none
@@ -33,10 +45,10 @@ ul{
   position: absolute;
 }
 
-.test:after{
+.active:before{
   position: absolute;
-  left: -.98%;
-  top: 35%;
+  left: -3px;
+  top: 12px;
   content: "";
   width: 6px;
   height: 6px;
@@ -44,12 +56,20 @@ ul{
   border-radius: 50%;
   box-sizing: none;
 }
+.active{
+  color: #1976d2;
+}
 
 .subtitles{
   padding-left: 24px;
 }
 
-.main-title{
-  border-bottom: 5px solid red;
+.main-title:after{
+  content: "";
+  display: block;
+  height: 1px;
+  width: 40%;
+  margin: 7px 0 4px;
+  background: #dbdbdb;
+  clear: both;
 }
-

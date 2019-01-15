@@ -1,9 +1,5 @@
-<div id="left-container">
-  <div  #sideBar id="sidebarCon">
-    <app-side-bar ></app-side-bar>
-  </div>
+<div #leftContainer id="left-container">
+  <app-side-bar [isSbShowing]="isSidebarShowing"></app-side-bar>
   <app-sidenav-content [isSbShowing]="isSidebarShowing"></app-sidenav-content>
 </div>
-<div id="right-container">
-  <app-right-nav *ngIf="isRightNavShowing" [rightnavChanged]="isRightNavShowing" [titles]="titles" [pageYs]="pageYOfTitles"></app-right-nav>
-</div>
+<app-right-nav *ngIf="isRightNavShowing" [rightnavChanged]="isRightNavShowing" [titles]="titles" [pageYs]="pageYOfTitles" [url]="url"></app-right-nav>

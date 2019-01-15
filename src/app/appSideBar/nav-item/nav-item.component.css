@@ -1,0 +1,91 @@
+:host{
+}
+
+.menu-item{
+  transition: background-color .2s;
+  text-decoration: none;  
+  padding-top: 4px;
+  padding-bottom:4px;
+  box-sizing: border-box;
+  text-align: left;
+  width: 93%;
+  word-wrap: break-word;
+  display: block;
+  max-width: 260px;
+  cursor: pointer;
+  display: block;
+}
+
+.menu-item:hover{
+  background-color: #dbdbdb;
+  color: #1976d2;
+  text-shadow: 0 0 5px #fff;
+}
+
+div a{
+  padding-left: 6px;
+
+  text-decoration: none;
+}
+
+div a:focus{
+  box-shadow: 0 0 0 2px #1976d2;
+}
+
+button{
+  position:relative;
+  border: none;
+  background: transparent;
+  margin-right: 0;
+  padding-left: 6px !important;
+  padding-top:8px !important;
+  padding-bottom: 10px !important;
+  color: #333;
+}
+
+button:focus{
+  box-shadow: 0 0 0 2px #1976d2;
+}
+
+button span svg{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 4px;
+  height: 24px;
+}
+
+.hidden{
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  max-height: 1px;
+  transition: visibility 275ms,opacity 275ms,max-height 280ms;
+}
+
+.expanded{
+  visibility: visible;
+  opacity: 1;
+  max-height: 4000px;
+  transition:visibility .5s,opacity .5s,max-height .5s;
+}
+
+.level-1{
+  font-size: 14px;
+  margin-left: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+    color: #333;
+}
+
+.level-2{
+  margin-left: 26px;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6e6e6e;
+}
+
+.selected{
+  color: #1976d2 !important;
+}

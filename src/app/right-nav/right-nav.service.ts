@@ -6,11 +6,10 @@ import {Subject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class RightNavService {
+  //-----NOTE:When the application is done, putting all of these subjects into an object may improve performance. Because then ngOnChanges won't get called so much.
 
   showingSubject:Subject<boolean> = new Subject<boolean>();
   showing$:Observable<boolean>= this.showingSubject.asObservable();
-
-  // subtitles: Map<number,string[]> = new Map<number,string[]>();
 
   titlesSubject: Subject<string[]> = new Subject<string[]>();
   titles$:Observable<string[]>= this.titlesSubject.asObservable();
@@ -20,6 +19,9 @@ export class RightNavService {
 
   pageYOfTitlesSubject: Subject<number[]> = new Subject<number[]>();
   pageYOfTitles$:Observable<number[]> = this.pageYOfTitlesSubject.asObservable();
+
+  urlSubject: Subject<string> = new Subject<string>();
+  url$:Observable<string> = this.urlSubject.asObservable();
 
   constructor() {
   }

@@ -1,6 +1,5 @@
 <div class="container">
   <ul>
-    <li class="inner-li" *ngFor="let title of titles; let i=index" appRightNav [subtitles]="subtitles" [index]="i" [pageYs]="pageYOfTitles">{{title}}</li>
+    <li class="inner-li" *ngFor="let title of titles; let i=index" appRightNav [titles]="titles" [subtitles]="subtitles" [index]="i" [pageYs]="pageYOfTitles"><a appAnchor [index]="i" [titles]="titles" [pageYs]="pageYOfTitles" [url]="url">{{title | subtitle}}</a></li>
   </ul>
-  <!-- <app-lis></app-lis> -->
 <div>

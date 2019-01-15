@@ -16,28 +16,27 @@ import {AppSideBarService} from './app-side-bar.service';
 import {MenuButtonComponent} from './main-navbar/menu-button/menu-button.component';
 import { SidenavContainerComponent } from './sidenav-container/sidenav-container.component';
 import { SidenavContentComponent } from './sidenav-container/sidenav-content/sidenav-content.component';
-import { RightNavComponent } from './right-nav/right-nav.component';
-import { RightNavDirective } from './right-nav/right-nav.directive';
 import { LisComponent } from './right-nav/lis/lis.component';
 import {RightNavService} from './right-nav/right-nav.service'
 import {CoreModule} from './core.module'
+import {RightNavModule} from './right-nav/right-nav.module';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppSideBarComponent,
     MainNavbarComponent,
     MenuButtonComponent,
     SidenavContainerComponent,
     SidenavContentComponent,
-    RightNavComponent,
-    RightNavDirective,
     LisComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     AppRoutingModule,
+    RightNavModule,
     HomeModule,
     FeaturesModule,
     DocsModule,
@@ -45,7 +44,6 @@ import {CoreModule} from './core.module'
     EventsModule,
     AppSideBarModule,
     BrowserAnimationsModule,
-    // GuideModule
   ],
   providers: [AppSideBarService,RightNavService],
   bootstrap: [AppComponent]

@@ -15,14 +15,15 @@ import {RightNavService} from '../right-nav/right-nav.service'
   providers:[AppSideBarService,RightNavService]
 })
 export class SidenavContainerComponent implements OnInit,OnChanges {
-  @Input() isSbShowing: boolean;
-  @ViewChild('sideBar') private sidebar:ElementRef;
+  @Input('isSbShowing') isSbShowing: boolean;
+  @ViewChild('leftContainer') private leftContainer:ElementRef;
   @Input() watchSidebar$: Observable<boolean>;
 
   isSidebarShowing:boolean;
   isRightNavShowing:boolean;
   titles:string[]=[];
   pageYOfTitles:number[]=[];
+  url: string;
 
   constructor(private cdRef : ChangeDetectorRef,private sidebarService:AppSideBarService, private renderer: Renderer2,private rightnavService:RightNavService){
 
@@ -30,20 +31,17 @@ export class SidenavContainerComponent implements OnInit,OnChanges {
 
   ngOnChanges(){
     this.isSidebarShowing = this.isSbShowing;
-    if(!this.isSidebarShowing){
-      this.renderer.removeClass(this.sidebar.nativeElement,'show');
-      this.renderer.addClass(this.sidebar.nativeElement,'hide');
-    }
-    if(this.isSidebarShowing){
-      this.renderer.removeClass(this.sidebar.nativeElement,'hide');
-      this.renderer.addClass(this.sidebar.nativeElement,'show');
-    }
   }
 
   ngOnInit(){
     //-----Note: This boolean subscription is necessary because it triggers ngOnChanges in RightNavComponent.
     this.rightnavService.showing$.subscribe((val)=>{
       this.isRightNavShowing=val;
+      if(!val){
+        this.renderer.setStyle(this.leftContainer.nativeElement,"max-width", '100%');
+      }else{
+        this.renderer.setStyle(this.leftContainer.nativeElement, 'max-width', '82%');
+      }
       //-----Note: It is important to detectChanges here because Angular doesn't detect the changes in this observable.
       this.cdRef.detectChanges();
     })
@@ -52,6 +50,10 @@ export class SidenavContainerComponent implements OnInit,OnChanges {
     })
     this.rightnavService.pageYOfTitles$.subscribe((val)=>{
       this.pageYOfTitles=val;
+      this.cdRef.detectChanges();
+    })
+    this.rightnavService.url$.subscribe((url)=>{
+      this.url = url;
       this.cdRef.detectChanges();
     })
   }

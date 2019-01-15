@@ -4,7 +4,7 @@
   margin: 0;
 }
 
-input{
+input, a, li, ol, p, ul{
   font-size: 14px;
   line-height: 24px;
   letter-spacing: .3px;

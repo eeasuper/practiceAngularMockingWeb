@@ -1,20 +1,9 @@
-<div id="sidenav-container">
-  <ul>
-    <li routerLink="/guide/quickstart">GETTING STARTED</li>
-    <li>TUTORIAL</li>
-    <li>
-      <ul>
-        <li>Introduction</li>
-        <li>The Application Shell</li>
-        <li>And so on</li>
-      </ul>
-    </li>
-    <li>FUNDAMENTALS</li>
-    <li>
-      <ul>
-        <li>Architecture</li>
-        <li>And so on</li>
-      </ul>
-    </li>
-  </ul>
+<div #navCon id="sidenav-container">
+  <div id="outer-container">
+    <div id="inner-container">
+      <app-nav-item [urls]="urls.one" [doCollapse]="false" [title]="titles.one" [level1]="true"></app-nav-item>
+      <app-nav-item [urls]="urls.two" [doCollapse]="true" [title]="titles.two"></app-nav-item>
+      <app-nav-item [urls]="urls.three" [doCollapse]="true" [title]="titles.three"></app-nav-item>
+    </div>
+  </div>
 </div>
