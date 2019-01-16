@@ -6,7 +6,6 @@ import {Observable} from 'rxjs';
 import {AppSideBarComponent} from '../appSideBar/app-side-bar/app-side-bar.component';
 import {SidenavContentComponent} from './sidenav-content/sidenav-content.component';
 import {AppSideBarService} from '../app-side-bar.service';
-import {WatchSidebarService} from '../watch-sidebar.service';
 import {RightNavService} from '../right-nav/right-nav.service'
 @Component({
   selector: 'app-sidenav-container',

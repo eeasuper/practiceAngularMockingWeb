@@ -34,7 +34,7 @@ export class MainNavbarComponent  implements OnInit,OnDestroy  {
         }else{
           this.renderer.removeClass(this.navCon.nativeElement, 'transparent');
           this.renderer.setStyle(this.navCon.nativeElement, 'position', 'fixed');
-          this.renderer.removeStyle(this.navCon.nativeElement, 'margin-left');
+          this.renderer.removeStyle(this.navCon.nativeElement, 'margin-left'  );
         }
       }
     })
