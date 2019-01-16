@@ -1,3 +1,5 @@
 I think home, the root, needs preloading.
 
 unsubscribe to observables in router events:https://stackoverflow.com/questions/36101756/angular2-routing-with-hashtag-to-page-anchor/44203337#44203337
+
+add opacity transition to home when page loads, and to sidebar.

@@ -1,7 +1,6 @@
 import { Component, OnInit,ChangeDetectorRef,OnChanges } from '@angular/core';
 import {GuideService} from './guide.service';
 import {AppSideBarService} from '../app-side-bar.service';
-import {WatchSidebarService} from '../watch-sidebar.service';
 import {SidenavContainerComponent} from '../sidenav-container/sidenav-container.component'
 
 @Component({

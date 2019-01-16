@@ -5,18 +5,6 @@ import {AppSideBarService} from "../../app-side-bar.service";
 
 @Component({
   selector: 'app-side-bar',
-  // animations: [
-  //   trigger('slideInOut',[
-  //     transition(':enter', [
-  //       style({transform: 'translateX(-100%)'}),
-  //       animate('0.8s',style({transform:'translateX(0%)'}))
-  //       ]),
-  //     transition(':leave',[
-  //       style({transform: 'translateX(0%)'}),
-  //       animate('0.8s', style({transform:'translateX(-100%)'}))
-  //       ])
-  //   ])
-  // ],
   templateUrl: './app-side-bar.component.html',
   styleUrls: ['./app-side-bar.component.css']
 })
@@ -132,7 +120,6 @@ export class AppSideBarComponent implements OnInit,OnChanges {
   }
 
   isSidebarShowing:boolean;
-  // clickedElement:ElementRef;
 
   constructor(private sidebarService:AppSideBarService, private renderer:Renderer2, private element:ElementRef) {
     this.isSidebarShowing = true;
@@ -153,9 +140,5 @@ export class AppSideBarComponent implements OnInit,OnChanges {
       this.renderer.removeClass(this.sidenavCon.nativeElement,'hide');
       this.renderer.addClass(this.sidenavCon.nativeElement,'show');
     }
-    // this.sidebarService.isClicked$.subscribe((val)=>{
-    //   console.log("going through");
-    //   this.clickedElement=val;
-    // })
   }
 }

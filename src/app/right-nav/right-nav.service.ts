@@ -1,11 +1,13 @@
 import { Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
+import {Router,NavigationStart} from '@angular/router';
 
+const routes :string[] = ["/docs","/api","/guide"]
 
 @Injectable({
   providedIn: 'root'
 })
-export class RightNavService {
+export class RightNavService{
   //-----NOTE:When the application is done, putting all of these subjects into an object may improve performance. Because then ngOnChanges won't get called so much.
 
   showingSubject:Subject<boolean> = new Subject<boolean>();
@@ -23,6 +25,29 @@ export class RightNavService {
   urlSubject: Subject<string> = new Subject<string>();
   url$:Observable<string> = this.urlSubject.asObservable();
 
-  constructor() {
+  constructor(private router:Router) {
+    this.router.events.subscribe((events) => {
+      if (events instanceof NavigationStart) {
+        if(this.toShow(events.url)){
+          //null
+        }else {
+          this.showingSubject.next(false);
+        }
+      }
+    })
   }
+
+  toShow(url:string):boolean{
+    let bool: boolean= false;
+    routes.forEach((val,ind)=>{
+      if(url.includes(val) || url.startsWith(val)){
+       //I think .includes is not a good way to implement in production stage.
+        bool = true;
+        return;
+      }
+    });
+    return bool;
+  }
+
+
 }

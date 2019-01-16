@@ -1,0 +1,12 @@
+footer{
+  background-image: url("footer/background.png");
+  position: relative;
+  line-height: 24px;
+  flex: 1;
+  padding: 48px;
+  z-index: 0;
+  background-color: #1976d2;
+  color: #fafafa;
+  font-weight: 300;
+  margin: 0;
+}

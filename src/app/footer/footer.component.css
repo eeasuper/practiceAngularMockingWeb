@@ -1,6 +1,46 @@
+:host{
+}
+
 #container{
   display: flex;
   justify-content: center;
   text-align: left;
   margin: 0 0 40px;
+}
+
+.footer-block{
+  margin: 0 24px;
+  vertical-align: top;
+}
+
+.footUlTitle{
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+
+.footer-block ul{
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-block ul li{
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+a{
+  color: #fafafa;
+  font-weight: 300;
+  text-decoration: none;
+  z-index: 20;
+  position: relative;
+}
+
+p{
+  text-align: center;
+  margin: 10px 0 5px;
 }

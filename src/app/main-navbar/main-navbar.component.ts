@@ -1,18 +1,19 @@
-import {Output, Component, OnInit, Renderer2, EventEmitter} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Output, Component, OnInit, Renderer2, EventEmitter,ElementRef,ViewChild,OnDestroy} from '@angular/core';
+import {Observable,Subscription} from 'rxjs';
+import {Router,NavigationStart} from '@angular/router';
 
 import {AppSideBarService} from '../app-side-bar.service';
-import {WatchSidebarService} from '../watch-sidebar.service';
 import {MenuButtonComponent} from './menu-button/menu-button.component';
 
 @Component({
   selector: 'app-main-navbar',
   templateUrl: './main-navbar.component.html',
   styleUrls: ['./main-navbar.component.css'],
-  providers: [AppSideBarService,WatchSidebarService]
+  providers: [AppSideBarService]
 })
-export class MainNavbarComponent  implements OnInit  {
+export class MainNavbarComponent  implements OnInit,OnDestroy  {
 
+  @ViewChild('navCon') private navCon:ElementRef;
   @Output() showSidebar: EventEmitter<boolean> = new EventEmitter();
 
   isButtonShowing:boolean;
@@ -21,8 +22,22 @@ export class MainNavbarComponent  implements OnInit  {
   clientX: number = 0;
   clientY: number = 0;
   clicked: boolean;
+  subscription:Subscription;
 
-  constructor(private sidebarService:AppSideBarService) {
+  constructor(private sidebarService:AppSideBarService,private router:Router,private renderer:Renderer2) {
+    this.subscription = this.router.events.subscribe((events) => {
+      if (events instanceof NavigationStart) {
+        if(events.url === "/"){
+          this.renderer.addClass(this.navCon.nativeElement, 'transparent');
+          this.renderer.setStyle(this.navCon.nativeElement, "margin-left", '16px');
+          this.renderer.setStyle(this.navCon.nativeElement, "position", 'absolute');
+        }else{
+          this.renderer.removeClass(this.navCon.nativeElement, 'transparent');
+          this.renderer.setStyle(this.navCon.nativeElement, 'position', 'fixed');
+          this.renderer.removeStyle(this.navCon.nativeElement, 'margin-left');
+        }
+      }
+    })
    }
   toggleShowing(): void{
     if(this.isSidebarShowing){
@@ -54,4 +69,7 @@ export class MainNavbarComponent  implements OnInit  {
     })
   }
 
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }

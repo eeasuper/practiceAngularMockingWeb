@@ -1,6 +1,6 @@
-import {Renderer2,ElementRef, Component,Input, OnInit,OnChanges,ViewChild,AfterViewInit} from '@angular/core';
+import {Renderer2,ElementRef, Component,Input, OnInit,OnChanges,ViewChild,AfterViewInit,OnDestroy} from '@angular/core';
 import {NavigationStart,Router} from '@angular/router'
-import{Subject, Observable} from 'rxjs'
+import{Subject, Observable, Subscription} from 'rxjs'
 
 import{AppSideBarService} from '../../app-side-bar.service'
 @Component({
@@ -8,7 +8,7 @@ import{AppSideBarService} from '../../app-side-bar.service'
   templateUrl: './nav-item.component.html',
   styleUrls: ['./nav-item.component.css']
 })
-export class NavItemComponent implements OnInit,OnChanges,AfterViewInit {
+export class NavItemComponent implements OnInit,OnChanges,AfterViewInit,OnDestroy {
   @ViewChild('anchor') private anchor:ElementRef;
   @ViewChild('icon') private icon:ElementRef;
   @Input('title') private title:object;
@@ -17,7 +17,7 @@ export class NavItemComponent implements OnInit,OnChanges,AfterViewInit {
   @Input('level1') private level1:boolean;
   @Input('level2') private level2:boolean;
   private isCollapsed:boolean = false;
-
+  subscription: Subscription;
 
 
   constructor( private element:ElementRef, private renderer:Renderer2,private router:Router,private sidebarService:AppSideBarService) { }
@@ -41,10 +41,7 @@ export class NavItemComponent implements OnInit,OnChanges,AfterViewInit {
     }
   }
   ngOnInit() {
-
-
-    console.log(this.urls.self);
-    this.router.events.subscribe((events) => {
+    this.subscription= this.router.events.subscribe((events) => {
       if (events instanceof NavigationStart) {
         if(this.urls.self.includes(events.url) && this.anchor && this.urls.self){
           this.renderer.addClass(this.anchor.nativeElement,'selected');
@@ -57,6 +54,8 @@ export class NavItemComponent implements OnInit,OnChanges,AfterViewInit {
 
   ngOnChanges(){
   }
-
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 
 }
