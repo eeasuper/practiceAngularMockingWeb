@@ -1,4 +1,4 @@
-import {Component, OnInit,Input,OnChanges } from '@angular/core';
+import {Component, OnInit,Input,OnChanges,HostListener,ElementRef,Renderer2 } from '@angular/core';
 import {RightNavService} from './right-nav.service';
 import {ActivatedRoute} from '@angular/router';
 
@@ -16,7 +16,18 @@ export class RightNavComponent implements OnInit,OnChanges {
   @Input('pageYs') private pageYOfTitles:number[];
 
   @Input('url') private url:string;
-  constructor(private rightnavService:RightNavService) { }
+  constructor(private rightnavService:RightNavService, private element: ElementRef, private renderer:Renderer2) { }
+
+  @HostListener('window:scroll',['$event'])
+  updateHeight(event){
+    //This hostListener is to make rightNav scrollable when it gets too long.
+
+    //-----NOTE: 393 px is the height of the footer, 64px is the height of the upper navbar.
+    let documentHeight = document.body.clientHeight;
+    let pageY = event.pageY +393+64;
+    //-----NOTE: The closer event.pageY gets to documentHeight, the lower maxheight should be.
+    this.renderer.setStyle(this.element.nativeElement, "max-height", documentHeight - pageY + "px");
+  }
 
   ngOnInit() {
   }

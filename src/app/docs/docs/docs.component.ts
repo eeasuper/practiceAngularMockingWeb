@@ -18,7 +18,7 @@ export class DocsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sidebarService.isShowingChange.subscribe((val)=>{
+    this.sidebarService.isShowingSubject.subscribe((val)=>{
       this.isSidebarShowing = val;
     })
     this.rightnavService.showingSubject.next(false);

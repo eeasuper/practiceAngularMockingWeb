@@ -10,7 +10,7 @@ export class AnchorDirective implements OnChanges{
   private pageYOfTitles: number[];
   private pageY: number;
   private pageYEnd:number;
-  // private subtitles:Map<number,string>;
+
   @Input('index') set indexToSet(v:number){
     this.index = v;
   }
@@ -23,9 +23,7 @@ export class AnchorDirective implements OnChanges{
   @Input('pageYs') set pageYsToSet(v:number[]){
     this.pageYOfTitles = v;
   }
-  // @Input('subtitles') set subtitlesToSet(v:Map<number,string>){
-  //   this.subtitles = v;
-  // }
+
 
   @HostListener('window:scroll',['$event'])
   onScroll(event){
@@ -62,10 +60,14 @@ export class AnchorDirective implements OnChanges{
         this.pageYEnd = val;
       }
     })
+    if(this.index === 0){
+      this.renderer.addClass(this.element.nativeElement, 'active');
+    }
     let title = this.titles.filter((val, ind)=>{
         return ind === this.index;
       })[0]
-    let titleReplaced = this.replaceAll(this.replaceAll(title," ","-"),":","-").toLowerCase();
+    //-----NOTE: should just use Regexes.
+    let titleReplaced = this.replaceAll(this.replaceAll(this.replaceAll(title," ","-"),":","-"),".","").toLowerCase();
     if(titleReplaced.startsWith("!sub!")){
       titleReplaced= titleReplaced.replace("!sub!-", "");
     }

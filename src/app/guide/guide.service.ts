@@ -8,12 +8,12 @@ import {AppSideBarService} from '../app-side-bar.service';
 })
 export class GuideService {
 
-  isSidebarShowing: Observable<boolean> = this.sidebarService.isShowingChange.asObservable();
+  // isSidebarShowing: Observable<boolean> = this.sidebarService.isShowingChange.asObservable();
 
   constructor(private sidebarService: AppSideBarService) {
-    this.isSidebarShowing.subscribe((val)=>{
-      console.log("GuideService:" + val)
-    })
+    // this.isSidebarShowing.subscribe((val)=>{
+    //   // console.log("GuideService:" + val)
+    // })
   }
 
 }

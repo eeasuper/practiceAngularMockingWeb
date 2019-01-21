@@ -1,0 +1,11 @@
+<div *ngIf="titles?.children">
+  <!-- the ngIf above is necessary because on the first run, Angular treats titles as undefined because it comes from an Input. -->
+  <button #button class="menu-item level-1" title="{{titles.description}}" (click)="doCollapse()">{{titles.name}}
+    <div #icon id="icon">
+      <svg focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg>
+    </div>
+  </button>
+  <div #listCon id="list-container" class="level-1 collapse">
+    <app-nav-item2 *ngFor="let value of objectValues(titles.children); let i = index;" [title]="value" [url]="objectValues(urls.children)[i].self" [level]=2></app-nav-item2>
+  </div>
+</div>

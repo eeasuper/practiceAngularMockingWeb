@@ -19,7 +19,7 @@ import { SidenavContentComponent } from './sidenav-container/sidenav-content/sid
 import { LisComponent } from './right-nav/lis/lis.component';
 import {RightNavService} from './right-nav/right-nav.service'
 import {RightNavModule} from './right-nav/right-nav.module';
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [

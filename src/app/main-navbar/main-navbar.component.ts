@@ -9,7 +9,7 @@ import {MenuButtonComponent} from './menu-button/menu-button.component';
   selector: 'app-main-navbar',
   templateUrl: './main-navbar.component.html',
   styleUrls: ['./main-navbar.component.css'],
-  providers: [AppSideBarService]
+  providers: []
 })
 export class MainNavbarComponent  implements OnInit,OnDestroy  {
 
@@ -41,10 +41,10 @@ export class MainNavbarComponent  implements OnInit,OnDestroy  {
    }
   toggleShowing(): void{
     if(this.isSidebarShowing){
-      this.sidebarService.isShowingChange.next(false);
+      this.sidebarService.isShowingSubject.next(false);
       this.showSidebar.emit(false);
     }else if(!this.isSidebarShowing){
-      this.sidebarService.isShowingChange.next(true);
+      this.sidebarService.isShowingSubject.next(true);
       this.showSidebar.emit(true);
     } 
   }
@@ -59,7 +59,7 @@ export class MainNavbarComponent  implements OnInit,OnDestroy  {
   }
 
   ngOnInit() {
-    this.sidebarService.isShowingChange.subscribe((val)=>{
+    this.sidebarService.isShowingSubject.subscribe((val)=>{
       this.isSidebarShowing = val;
       this.showSidebar.emit(val)
     })

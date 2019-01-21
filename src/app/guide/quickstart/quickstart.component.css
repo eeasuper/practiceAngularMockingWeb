@@ -1,0 +1,21 @@
+h1{
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+h2{
+  font-size: 22px;
+  font-weight: 600;
+  margin: 32px 0 23px;
+  clear: both;
+}
+h3{
+  font-size: 20px;
+  font-weight: 400;
+  margin: 24px 0 12px;
+  clear: both;
+}
+p{
+  margin: 14px 0 0;
+}

@@ -9,23 +9,25 @@ const routes :string[] = ["/docs","/api","/guide"]
 })
 export class AppSideBarService{
 
-  isShowingChange: Subject<boolean> = new Subject<boolean>();
-  isButtonShowingChange: Subject<boolean> = new Subject<boolean>();
+  isShowingSubject: Subject<boolean> = new Subject<boolean>();
+  isShowing$:Observable<boolean> = this.isShowingSubject.asObservable();
 
-  // isClickedSubject: Subject<ElementRef> = new Subject<ElementRef>();
-  // isClicked$: Observable<ElementRef> = this.isClickedSubject.asObservable();
+  isButtonShowingChange: Subject<boolean> = new Subject<boolean>();
 
   constructor(private router:Router){
     this.router.events.subscribe((events) => {
       if (events instanceof NavigationStart) {
         if(this.toShow(events.url)){
-          this.isShowingChange.next(true);
+          this.isShowingSubject.next(true);
           this.isButtonShowingChange.next(true);
         }else {
-          this.isShowingChange.next(false);
+          this.isShowingSubject.next(false);
           this.isButtonShowingChange.next(false);
         }
       }
+    })
+    this.isShowingSubject.subscribe((val)=>{
+      console.log(val);
     })
   }
 

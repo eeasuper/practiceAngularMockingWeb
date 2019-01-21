@@ -1,14 +1,14 @@
-import { Component, OnInit,Input,Renderer2,ElementRef,OnChanges,ViewChild } from '@angular/core';
-import {Router,NavigationEnd,ActivatedRoute} from '@angular/router';
+import { Component, ViewChild,Input, OnInit,ElementRef,Renderer2,OnChanges,ChangeDetectorRef } from '@angular/core';
+
 import {AppSideBarService} from "../../app-side-bar.service";
-// import {trigger, state, style, animate,transition} from '@angular/animations';
 
 @Component({
-  selector: 'app-side-bar',
-  templateUrl: './app-side-bar.component.html',
-  styleUrls: ['./app-side-bar.component.css']
+  selector: 'app-side-bar2',
+  templateUrl: './app-side-bar2.component.html',
+  styleUrls: ['./app-side-bar2.component.css'],
+  providers:[AppSideBarService]
 })
-export class AppSideBarComponent implements OnInit,OnChanges {
+export class AppSideBar2Component implements OnInit,OnChanges {
   @Input('isSbShowing') private isSbShowing:boolean;
   @ViewChild('navCon') private sidenavCon:ElementRef
   titles= {
@@ -121,14 +121,16 @@ export class AppSideBarComponent implements OnInit,OnChanges {
 
   isSidebarShowing:boolean;
 
-  constructor(private sidebarService:AppSideBarService, private renderer:Renderer2, private element:ElementRef) {
-    this.isSidebarShowing = true;
+  constructor(private sidebarService:AppSideBarService, private renderer:Renderer2, private element:ElementRef,private cdRef:ChangeDetectorRef) {
+    // this.isSidebarShowing = true;
   }
 
   ngOnInit() {
-    // this.sidebarService.isShowingChange.subscribe((val)=>{
-    //   this.isSidebarShowing = val;
-    // })
+    this.sidebarService.isShowing$.subscribe((val)=>{
+      // console.log("appsidebar change detected")
+      this.isSidebarShowing = val;
+      this.cdRef.detectChanges();
+    })
   }
 
   ngOnChanges(){
@@ -141,4 +143,5 @@ export class AppSideBarComponent implements OnInit,OnChanges {
       this.renderer.addClass(this.sidenavCon.nativeElement,'show');
     }
   }
+
 }
